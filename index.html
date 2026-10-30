@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CAHAYA99 - Film Simulation</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">CAHAYA<span>99</span></div>
+    <div class="simulation">FILM SIMULATION</div>
+</header>
+
+<main class="container">
+
+    <section class="top-info">
+
+        <div>
+            <small>WELCOME PLAYER</small>
+            <h2>CAHAYA99</h2>
+        </div>
+
+        <div class="balance">
+            <small>SALDO VIRTUAL</small>
+            <h3 id="balance">Rp 10.000.000</h3>
+        </div>
+
+    </section>
+
+    <section class="game-panel">
+
+        <div class="game-header">
+
+            <span>🍒</span>
+
+            <div>
+                <h1>CAHAYA99</h1>
+                <p>FRUIT LEGEND</p>
+            </div>
+
+            <span>🍉</span>
+
+        </div>
+
+        <div class="game-content">
+
+            <div class="game-label">
+                <span>● VISUAL SIMULATION</span>
+                <span>5 REELS</span>
+            </div>
+
+            <div class="reels" id="reels">
+
+                <div class="reel">🍒</div>
+                <div class="reel">🍋</div>
+                <div class="reel">🍇</div>
+                <div class="reel">🍉</div>
+                <div class="reel">🍊</div>
+
+                <div class="reel">🍓</div>
+                <div class="reel">🍍</div>
+                <div class="reel">🥝</div>
+                <div class="reel">🍎</div>
+                <div class="reel">🍌</div>
+
+                <div class="reel">🍊</div>
+                <div class="reel">🍒</div>
+                <div class="reel">🍉</div>
+                <div class="reel">🍇</div>
+                <div class="reel">🍋</div>
+
+            </div>
+
+            <!-- EFEK KEMENANGAN -->
+
+            <div id="winEffect" class="win-effect">
+
+                <div class="win-stars">
+                    ✦ ✧ ✦ ✧ ✦
+                </div>
+
+                <h2>BIG WIN!</h2>
+
+                <p>SIMULASI KEMENANGAN</p>
+
+            </div>
+
+            <!-- PENGATURAN NOMINAL TAMPILAN -->
+
+            <div class="settings">
+
+                <label for="nominalSelect">
+                    NOMINAL TAMPILAN
+                </label>
+
+                <select id="nominalSelect">
+
+                    <option value="100000">Rp 100.000</option>
+                    <option value="250000">Rp 250.000</option>
+                    <option value="500000">Rp 500.000</option>
+                    <option value="1000000">Rp 1.000.000</option>
+                    <option value="5000000">Rp 5.000.000</option>
+
+                </select>
+
+                <div class="selected-info">
+                    <span>Nominal terpilih:</span>
+
+                    <strong id="selectedNominal">
+                        Rp 100.000
+                    </strong>
+                </div>
+
+            </div>
+
+            <div class="result" id="result">
+                READY TO PLAY
+            </div>
+
+            <button id="spinButton" onclick="spin()">
+                SPIN NOW
+            </button>
+
+            <p class="note">
+                SIMULASI VISUAL UNTUK PROPERTI SHORT FILM
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="history">
+
+        <div class="history-heading">
+            <h3>GAME HISTORY</h3>
+            <span>LAST 10 RESULTS</span>
+        </div>
+
+        <div id="historyList">
+            <p class="empty">Belum ada aktivitas.</p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    CAHAYA99 © 2026 | FILM PROP SIMULATION
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

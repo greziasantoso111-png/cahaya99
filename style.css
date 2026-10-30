@@ -1,0 +1,557 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(
+        ellipse at top,
+        #54201b 0%,
+        #1c0b0b 55%,
+        #100707 100%
+    );
+
+    color: white;
+    min-height: 100vh;
+}
+
+/* NAVBAR */
+
+.navbar {
+    height: 75px;
+    padding: 0 7%;
+    background: rgba(20, 7, 7, 0.95);
+    border-bottom: 1px solid #a77a32;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-size: 27px;
+    font-weight: 800;
+    color: #f4d27b;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: white;
+}
+
+.simulation {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #d9b765;
+    border: 1px solid #8d682d;
+    padding: 9px 13px;
+    border-radius: 4px;
+}
+
+/* CONTAINER */
+
+.container {
+    width: 92%;
+    max-width: 850px;
+    margin: 45px auto;
+}
+
+/* INFORMASI ATAS */
+
+.top-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+
+.top-info small {
+    color: #bba77e;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.top-info h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    margin-top: 6px;
+    color: #f4d27b;
+}
+
+.balance {
+    text-align: right;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid #79582d;
+    padding: 12px 18px;
+    border-radius: 7px;
+}
+
+.balance h3 {
+    color: #f6d77d;
+    margin-top: 6px;
+    font-size: 17px;
+}
+
+/* PANEL GAME */
+
+.game-panel {
+    padding: 5px;
+    background: linear-gradient(
+        135deg,
+        #e1bd68,
+        #80531f,
+        #d9b75e
+    );
+
+    border-radius: 14px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.5);
+}
+
+.game-header {
+    background: linear-gradient(
+        90deg,
+        #56140f,
+        #8e2618,
+        #56140f
+    );
+
+    text-align: center;
+    padding: 23px 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.game-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 35px;
+    color: #ffe7a1;
+    letter-spacing: 5px;
+}
+
+.game-header p {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #e8c36e;
+    margin-top: 5px;
+}
+
+.game-header span {
+    font-size: 30px;
+}
+
+.game-content {
+    background: linear-gradient(
+        150deg,
+        #32100e,
+        #180807
+    );
+
+    padding: 25px;
+    text-align: center;
+}
+
+.game-label {
+    display: flex;
+    justify-content: space-between;
+    color: #d7b86d;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* REELS */
+
+.reels {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 9px;
+    padding: 12px;
+
+    background: #120706;
+    border: 2px solid #b88c40;
+    border-radius: 8px;
+}
+
+.reel {
+    height: 78px;
+
+    background: linear-gradient(
+        145deg,
+        #fff0c8,
+        #d6b16c
+    );
+
+    border-radius: 6px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 35px;
+}
+
+.reel.spinning {
+    animation: reelMotion 0.18s ease-in-out infinite alternate;
+}
+
+.reel.stopped {
+    animation: stopEffect 0.5s ease-out;
+}
+
+@keyframes reelMotion {
+    from {
+        transform: translateY(-3px);
+        filter: blur(1px);
+    }
+
+    to {
+        transform: translateY(3px);
+        filter: blur(0);
+    }
+}
+
+@keyframes stopEffect {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    70% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* EFEK KEMENANGAN */
+
+.win-effect {
+    display: none;
+    margin: 20px 0;
+    padding: 22px 10px;
+
+    border: 2px solid #e7c45f;
+    border-radius: 10px;
+
+    background: radial-gradient(
+        circle,
+        #8c5b18,
+        #35110d
+    );
+
+    box-shadow: 0 0 25px rgba(255, 207, 80, 0.5);
+}
+
+.win-effect.show {
+    display: block;
+    animation: bigWin 0.65s ease-in-out;
+}
+
+.win-effect h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 34px;
+    color: #ffe58b;
+    text-shadow: 0 0 15px #ffcb35;
+    animation: winText 0.8s infinite alternate;
+}
+
+.win-effect p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #ffe5a0;
+    margin-top: 8px;
+}
+
+.win-stars {
+    color: #ffe58b;
+    font-size: 25px;
+    letter-spacing: 7px;
+    margin-bottom: 10px;
+    animation: starMove 1s infinite alternate;
+}
+
+@keyframes bigWin {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes winText {
+    from {
+        text-shadow: 0 0 5px #ffcb35;
+    }
+
+    to {
+        text-shadow: 0 0 25px #fff0a0;
+    }
+}
+
+@keyframes starMove {
+    from {
+        transform: scale(0.9);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
+
+/* NOMINAL */
+
+.settings {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid #80602e;
+    border-radius: 8px;
+    padding: 18px;
+    margin: 20px 0;
+    text-align: left;
+}
+
+.settings label {
+    display: block;
+    color: #e8c36e;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.settings select {
+    width: 100%;
+    padding: 12px;
+
+    background: #29100d;
+    border: 1px solid #b88c40;
+    color: #ffe5a0;
+
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.settings select option {
+    background: #29100d;
+    color: white;
+}
+
+.selected-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding-top: 12px;
+    margin-top: 12px;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    color: #c9b58e;
+    font-size: 11px;
+}
+
+.selected-info strong {
+    color: #f5d16b;
+}
+
+/* HASIL */
+
+.result {
+    margin: 22px 0;
+    min-height: 22px;
+    font-weight: 700;
+    font-size: 15px;
+    color: #e6c36c;
+}
+
+.result.win {
+    color: #ffe078;
+    text-shadow: 0 0 12px #ffc400;
+}
+
+.result.lose {
+    color: #ff8585;
+}
+
+/* TOMBOL */
+
+#spinButton {
+    width: 65%;
+    max-width: 350px;
+    padding: 17px;
+
+    background: linear-gradient(
+        180deg,
+        #ffe59a,
+        #c58b30
+    );
+
+    border: 2px solid #fff0b6;
+    border-radius: 7px;
+
+    color: #43140c;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+    box-shadow: 0 5px 0 #704414;
+    transition: 0.2s;
+}
+
+#spinButton:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+
+#spinButton:disabled {
+    opacity: 0.5;
+    cursor: wait;
+    transform: none;
+}
+
+.note {
+    font-size: 9px;
+    color: #a9916a;
+    letter-spacing: 1px;
+    margin-top: 20px;
+}
+
+/* HISTORY */
+
+.history {
+    margin-top: 25px;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid #674727;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.history-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.history-heading h3 {
+    color: #f0cf7d;
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+}
+
+.history-heading span {
+    font-size: 9px;
+    color: #a9916a;
+}
+
+.history-item {
+    padding: 11px 0;
+    border-bottom: 1px solid #4c3020;
+    font-size: 12px;
+    color: #e6d6b9;
+    line-height: 1.7;
+}
+
+.empty {
+    font-size: 12px;
+    color: #9c896d;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    color: #907653;
+    font-size: 10px;
+    padding: 25px;
+}
+
+/* RESPONSIVE HP */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: 65px;
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    .top-info {
+        align-items: flex-start;
+    }
+
+    .top-info h2 {
+        font-size: 16px;
+    }
+
+    .balance {
+        padding: 10px;
+    }
+
+    .balance h3 {
+        font-size: 13px;
+    }
+
+    .game-header h1 {
+        font-size: 26px;
+    }
+
+    .game-header span {
+        font-size: 21px;
+    }
+
+    .game-content {
+        padding: 14px 9px;
+    }
+
+    .reels {
+        gap: 5px;
+        padding: 7px;
+    }
+
+    .reel {
+        height: 58px;
+        font-size: 23px;
+    }
+
+    #spinButton {
+        width: 90%;
+    }
+
+    .history {
+        padding: 14px;
+    }
+
+    .win-effect h2 {
+        font-size: 27px;
+    }
+}
